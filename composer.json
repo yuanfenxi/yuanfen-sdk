@@ -1,0 +1,25 @@
+{
+  "name": "yuanfenxi/yuanfen-sdk",
+  "version": "1.0.4",
+  "description": "",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "",
+      "email": "postmaster@yuanfenxi.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "snoopy/snoopy": ">=1.0",
+    "firebase/php-jwt": "^3.0",
+    "vlucas/phpdotenv": "~2.2",
+    "whichbrowser/parser": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "YuanFen\\": "src/YuanFen/"
+    }
+  }
+}
