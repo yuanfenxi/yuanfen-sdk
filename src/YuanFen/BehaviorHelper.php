@@ -18,6 +18,10 @@ class BehaviorHelper
     protected $appKey = "";
     protected $appSecret = "";
     protected $urlPrefix = "https://t.yuanfenxi.com/stat/event.api";
+    protected $sid = "";
+
+
+
 
     public function reportEvent($activityId, $eventType = "ActivityReport")
     {
@@ -26,7 +30,7 @@ class BehaviorHelper
         $urlPrefix = $this->getUrlPrefix();
         $browserResult = new Parser(self::getAllHeaders(), ['detectBots' => false]);
         $data = array(
-            "sid" => "da34d2f2b68fe4fb038acc520c0daf5b",
+            "sid" => $this->getSid(),
             "rn" => "-" . rand(1000, 9999) . "-" . microtime(true),
             "cookie" => $_COOKIE["_yfx_ga"]??"",
             "eventType" => $eventType,
@@ -107,4 +111,22 @@ class BehaviorHelper
         }
         return $headers;
     }
+
+    /**
+     * @return string
+     */
+    public function getSid()
+    {
+        return $this->sid;
+    }
+
+    /**
+     * @param string $sid
+     */
+    public function setSid($sid)
+    {
+        $this->sid = $sid;
+    }
+
+
 }
