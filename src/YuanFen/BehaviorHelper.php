@@ -21,9 +21,7 @@ class BehaviorHelper
     protected $sid = "";
 
 
-
-
-    public function reportEvent($activityId, $eventType = "ActivityReport")
+    public function reportEvent($activityId, $eventType = "register", $cookie = "")
     {
         $appKey = $this->getAppKey();
         $appSecret = $this->getAppSecret();
@@ -32,7 +30,7 @@ class BehaviorHelper
         $data = array(
             "sid" => $this->getSid(),
             "rn" => "-" . rand(1000, 9999) . "-" . microtime(true),
-            "cookie" => $_COOKIE["_yfx_ga"]??"",
+            "cookie" => $cookie,
             "eventType" => $eventType,
             "eventId" => $activityId,
             "ts" => time() * 1000,
@@ -46,9 +44,6 @@ class BehaviorHelper
         $result = $snoopyObject->results;
 
         $jsonArray = json_decode($result, true);
-//        if ($jsonArray["code"] != 200) {
-//            Log::error("report event failed,url:" . $url);
-//        }
         return $jsonArray;
     }
 
