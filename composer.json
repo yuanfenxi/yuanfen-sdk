@@ -1,7 +1,7 @@
 {
   "name": "yuanfenxi/yuanfen-sdk",
   "version": "1.0.5",
-  "description": "",
+  "description": "猿分析php sdk",
   "minimum-stability": "dev",
   "license": "MIT",
   "authors": [
@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "php": ">=5.5.9",
+    "php": ">=7.0.0",
     "firebase/php-jwt": ">=2.0",
     "whichbrowser/parser": "^2.0",
     "guzzlehttp/guzzle": "^6.3"

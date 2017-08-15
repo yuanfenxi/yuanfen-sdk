@@ -15,6 +15,7 @@ class TestReport extends TestCase
     {
         $activityId = time();
         $userBehavior = new \YuanFen\UserBehavior($activityId, "testingEvent", "testingCookie");
+        $userBehavior->parseAndFillBrowserAndOs();
         $behaviorReport = new \YuanFen\BehaviorClient(getenv("YFX_KEY"), getenv("YFX_SECRET"), getenv("YFX_SID"));
 
         $result = $behaviorReport->postEvent($userBehavior);
