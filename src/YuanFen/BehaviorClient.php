@@ -18,6 +18,7 @@ class BehaviorClient
     protected $gateway = "https://t.yuanfenxi.com/stat/event.api";
     protected $sid = "";
 
+    protected $response;
     /**
      * BehaviorReporter constructor.
      * @param string $appKey
@@ -66,6 +67,7 @@ class BehaviorClient
         $client = new Client();
         $res = $client->request('GET', $url);
         $result = $res->getBody();
+        $this->setResponse($res);
         $jsonArray = json_decode($result, true);
         if (empty($jsonArray)) {
             return false;
@@ -141,6 +143,23 @@ class BehaviorClient
     {
         $this->sid = $sid;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * @param mixed $response
+     */
+    public function setResponse($response)
+    {
+        $this->response = $response;
+    }
+
 
 
 }

@@ -23,9 +23,10 @@ class UserBehavior
     public $browser;
     public $ua;
     public $sid;
+    public $otherData;
+    public $otherDataType;
 
-
-    public function __construct($activityId, $eventType = "register", $cookie = null, $rn = null)
+    public function __construct($activityId, $eventType = "register", $otherData = "{}", $otherDataType = "", $cookie = null, $rn = null)
     {
         $this->rn = $rn?? ("-" . rand(1000, 9999) . "-" . microtime(true));
         $this->cookie = $cookie??($_COOKIE["_yfx_ga"]??"");
@@ -33,6 +34,7 @@ class UserBehavior
         $this->eventType = $eventType;
         $this->ts = time() * 1000;
         $this->ua = isset($_SERVER["HTTP_USER_AGENT"]) ? $_SERVER["HTTP_USER_AGENT"] : "";
+        $this->otherData = $otherData;
     }
 
     public function parseAndFillBrowserAndOs()
@@ -194,5 +196,38 @@ class UserBehavior
         $this->sid = $sid;
     }
 
+    /**
+     * @return string
+     */
+    public function getOtherData()
+    {
+        return $this->otherData;
+    }
+
+    /**
+     * @param string $otherData
+     */
+    public function setOtherData($otherData)
+    {
+        $this->otherData = $otherData;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOtherDataType()
+    {
+        return $this->otherDataType;
+    }
+
+    /**
+     * @param mixed $otherDataType
+     */
+    public function setOtherDataType($otherDataType)
+    {
+        $this->otherDataType = $otherDataType;
+    }
+
+    
     
 }
