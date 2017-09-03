@@ -40,8 +40,14 @@ class UserBehavior
     public function parseAndFillBrowserAndOs()
     {
         $browserResult = new Parser(BehaviorClient::getAllHeaders(), ['detectBots' => false]);
-        $this->os = $browserResult->os->name;
-        $this->browser = $browserResult->browser->name;
+        try {
+            $this->os = $browserResult->os->name;
+        } catch (\Exception $ignored) {
+        }
+        try {
+            $this->browser = $browserResult->browser->name;
+        } catch (\Exception $ignored) {
+        }
     }
 
     /**

@@ -37,7 +37,7 @@ if($user->save()){
 我们把注册行为命名为"register-succ";应该在注册成功后，添加汇报用户注册行为的代码。
 
 ```
-
+/** 请将{YFX_KEY} {YFX_SECRET},{YFX_SID}替换成您自己的。 */
 $user = new User;
 $user->phone = 13255801983;
 $user->password = md5("HelloWorld");
@@ -46,8 +46,7 @@ if($user->save()){
 		 $userBehavior = new UserBehavior($UserModel->uid,"register-succ");
 		 $userBehavior->parseAndFillBrowserAndOs();
 		 $behaviorClient = new BehaviorClient("{YFX_KEY}","{YFX_SECRET}","{YFX_SID}");
-		 $behaviorClient->postEvent($userBehavior);
-		  
+		 $behaviorClient->postEvent($userBehavior);		  
 	}catch(\Exception $e){
 	}
 	echo "OK";

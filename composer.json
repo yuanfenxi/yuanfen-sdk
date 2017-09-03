@@ -1,12 +1,12 @@
 {
   "name": "yuanfenxi/yuanfen-sdk",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "猿分析php sdk---用户行为分析收集专家",
   "minimum-stability": "dev",
   "license": "MIT",
   "authors": [
     {
-      "name": "",
+      "name": "猫小猫",
       "email": "postmaster@yuanfenxi.com"
     }
   ],
