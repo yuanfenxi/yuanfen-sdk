@@ -39,7 +39,7 @@ class PvLog
         $this->ids = $ids;
         $this->sid = $sid;
         $this->ts = time();
-        $this->cookie = $cookie??($_COOKIE["_yfx_ga"]??"");
+        $this->cookie = $cookie ?? ($_COOKIE[HttpUtil::globalCookieName] ?? "");
     }
 
     public function toLogLine()

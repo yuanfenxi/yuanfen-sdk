@@ -21,7 +21,7 @@ trait HttpTrait
 
     public function parseAndFillRealIP()
     {
-        $this->ip = $_SERVER["REMOTE_ADDR"];
+        $this->ip = $_SERVER[HttpUtil::REMOTE_ADDR];
     }
 
     public function parseAndFillBrowserAndOs()

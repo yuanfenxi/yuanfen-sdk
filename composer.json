@@ -1,6 +1,6 @@
 {
   "name": "yuanfenxi/yuanfen-sdk",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "猿分析php sdk---用户行为分析收集专家",
   "minimum-stability": "dev",
   "license": "MIT",

@@ -27,11 +27,11 @@ class UserBehavior
     public function __construct($activityId, $eventType = "register", $otherData = "{}", $otherDataType = "", $cookie = null, $rn = null)
     {
         $this->rn = $rn?? ("-" . rand(1000, 9999) . "-" . microtime(true));
-        $this->cookie = $cookie??($_COOKIE["_yfx_ga"]??"");
+        $this->cookie = $cookie ?? ($_COOKIE[HttpUtil::globalCookieName] ?? "");
         $this->eventId = $activityId;
         $this->eventType = $eventType;
         $this->ts = time() * 1000;
-        $this->ua = isset($_SERVER["HTTP_USER_AGENT"]) ? $_SERVER["HTTP_USER_AGENT"] : "";
+        $this->ua = isset($_SERVER[HttpUtil::HTTP_USER_AGENT]) ? $_SERVER[HttpUtil::HTTP_USER_AGENT] : "";
         $this->otherData = $otherData;
     }
 

@@ -11,6 +11,9 @@ namespace YuanFen;
 
 class HttpUtil
 {
+    const globalCookieName = "_yfx_ga";
+    const HTTP_USER_AGENT = "HTTP_USER_AGENT";
+    const REMOTE_ADDR = "REMOTE_ADDR";
     public static function getAllHeaders()
     {
 
