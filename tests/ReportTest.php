@@ -17,9 +17,15 @@ class TestReport extends TestCase
         $userBehavior = new \YuanFen\UserBehavior($activityId, "testingEvent", "testingCookie");
         $userBehavior->parseAndFillBrowserAndOs();
         $behaviorReport = new \YuanFen\BehaviorClient(getenv("YFX_KEY"), getenv("YFX_SECRET"), getenv("YFX_SID"));
-
         $result = $behaviorReport->postEvent($userBehavior);
         $this->assertEquals(true, $result);
+    }
+
+    public function testPvLog()
+    {
+        $pvlog = new \YuanFen\PvLog(getenv("YFX_SID"), microtime(true), "guess", [124, 223, 339, "cms:a1"], "acookie");
+        $pvlog->setIp("127.0.0.1");
+        echo $pvlog->toLogLine();
     }
 
     protected function setUp()

@@ -9,19 +9,17 @@
 namespace YuanFen;
 
 
-use WhichBrowser\Parser;
 
 class UserBehavior
 {
-
+    use HttpTrait;
+    
     public $rn;
-    public $cookie;
+
     public $eventType;
     public $eventId;
     public $ts;
-    public $os;
-    public $browser;
-    public $ua;
+
     public $sid;
     public $otherData;
     public $otherDataType;
@@ -37,18 +35,6 @@ class UserBehavior
         $this->otherData = $otherData;
     }
 
-    public function parseAndFillBrowserAndOs()
-    {
-        $browserResult = new Parser(BehaviorClient::getAllHeaders(), ['detectBots' => false]);
-        try {
-            $this->os = $browserResult->os->name;
-        } catch (\Exception $ignored) {
-        }
-        try {
-            $this->browser = $browserResult->browser->name;
-        } catch (\Exception $ignored) {
-        }
-    }
 
     /**
      * @return array
@@ -74,21 +60,6 @@ class UserBehavior
         $this->rn = $rn;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getCookie()
-    {
-        return $this->cookie;
-    }
-
-    /**
-     * @param null|string $cookie
-     */
-    public function setCookie($cookie)
-    {
-        $this->cookie = $cookie;
-    }
 
     /**
      * @return string
@@ -138,53 +109,10 @@ class UserBehavior
         $this->ts = $ts;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getOs()
-    {
-        return $this->os;
-    }
 
-    /**
-     * @param mixed $os
-     */
-    public function setOs($os)
-    {
-        $this->os = $os;
-    }
 
-    /**
-     * @return mixed
-     */
-    public function getBrowser()
-    {
-        return $this->browser;
-    }
 
-    /**
-     * @param mixed $browser
-     */
-    public function setBrowser($browser)
-    {
-        $this->browser = $browser;
-    }
 
-    /**
-     * @return string
-     */
-    public function getUa()
-    {
-        return $this->ua;
-    }
-
-    /**
-     * @param string $ua
-     */
-    public function setUa($ua)
-    {
-        $this->ua = $ua;
-    }
 
     /**
      * @return mixed
